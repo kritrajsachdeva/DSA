@@ -1,15 +1,14 @@
 class Solution {
     public int sumCounts(List<Integer> nums) {
-        int s = nums.size();
-        int k = 0;
-        for(int i = 0; i<s; i++) {
-            Set<Integer> set = new HashSet<>();
-            for(int j = i; j<s; j++) {
-                set.add(nums.get(j));
-                k+= set.size() * set.size();
+        int sum = 0;
+        for(int i = 0; i<nums.size(); i++) {
+            List<Integer> list = new ArrayList<>();
+            for(int j = i; j<nums.size(); j++) {
+
+                if(! list.contains(nums.get(j))) list.add(nums.get(j));
+                sum+=list.size()*list.size();
             }
-            
         }
-        return k;
+        return sum;
     }
 }
